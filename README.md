@@ -1,4 +1,13 @@
-# Install Packages / Libraries that the project uses
+## Investigating relationships between Twitter latent topics and political orientation
+
+Project for the Cognitive, Behavioral and Social Data @ Unipd, made by Natascia Caria, Marìa Emilia Charnelli, Francesco Ferretto, Matteo Lavina and Andrea Sinigaglia
+
+The aim of this project was, after a preliminary phase of data collection and labeling, in finding topics by analysis the cluster of topics among different political parties, and see their evolution through time. 
+For an in-depth description of the project with its results, look at "CBSD_project.pdf" file.
+
+
+
+### Install Packages / Libraries that the project uses
 * tweepy
 * sklearn
 * numpy
@@ -16,13 +25,13 @@
 * python-box
 
 
-# Create folders:
+### Create folders:
 * figures -> folder to save the figures
 * models -> folder to save the NLP models created
 * data -> to save the temporal data generated like tweets per party, filter accounts
 * Tweets -> create the folder Tweets with all the tweets 
 
-# Credentials
+### Credentials
 
 * You need to create a json file like this:
 
@@ -35,7 +44,7 @@
 
 Or you can use the script "create_credentials_json.py" to create a json file with the credentials
 
-# Files
+### Files
 
 
 * filter_valid_accounts.py -> Script to clean the file data of the twitter accounts and filter the valid accounts (users that have the tweets files)
@@ -64,7 +73,7 @@ Or you can use the script "create_credentials_json.py" to create a json file wit
 
 * ulmfit_fastai.py -> Utils functions for using Fastai
 
-## Folder Notebooks
+#### Folder Notebooks
 
 * data_exploration.ipynb -> First notebook to explore the accounts labeled file
 * data_analysis.ipynb -> Second notebook to analize the valid accounts and how many tweets we have
