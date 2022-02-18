@@ -1,0 +1,80 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{url}
+
+%opening
+\title{Group project : Predicting political orientation from Twitter contents}
+\author{Natascia Caria, María Emilia Charnelli, Francesco Ferretto, \\ Matteo Lavina, Andrea Sinigaglia, }
+
+
+
+
+
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+
+\end{abstract}
+
+\section{Phase 1 - Collecting data}
+
+Collecting data by going through profile on Twitter randomly.
+
+%Definition of friends: The users who an specific user is following are their "friends".
+
+%Definition of followers: Every user who are following an specified user.
+
+\subsection{Strategy for collect users}
+
+We did an script in Python using the Tweepy library for accessing the Twitter API \cite{tweepy}. Also, we used the random functions of the Numpy library \cite{tweepy}.
+
+In order to collect users we first take an initial list of $n$ users from Italy who meet certain conditions. Those users are added to the selected user list. Then from these users we start an iterative process. First we select users randomly from the selected user list and from each selected user we take $k$ of their friends randomly, and if those new users selected (friends) meet certain conditions, they are added to the selected user list of users. This process is repeated several times until complete the $1000$ users required for the analysis.
+
+We choose the friends of every user instead of their followers because we consider that a user is following accounts that he chooses to follow because he knows or he likes those users.  
+
+We used the search method of Tweepy to get the initial list of users. That method returns a list of $t$ tweets by geolocalization, in this case from Italy. From these list of tweets we get the unique users and we select the users who meet certain conditions to create the initial list of users. We could have used the search method for obtaining all the users for the analysis. But to ensure to obtain randomly users who aren't bots and who are useful for this task, we considered that is better to iterate over friends of an initial list.
+
+For obtaining a random sample of users we used the function "choice" of the random package in the Numpy library. Also, to obtain different users in each iteration we used the function "choice" with a parameter that allows choosing $k$ users in a list using no replacement.
+
+For check that every user meet with certain conditions, we define a function to determine is a user is useful for our analysis:
+
+\begin{itemize}
+ \item   min\_n\_tweets = 10. Minimun number of tweets for consider a user as useful. 
+ 
+ \item   min\_n\_friends = 15.  Minimun number of friends for consider a user as useful. 
+ 
+ \item   tweet\_language = 'it'. The language of the last tweet should be italian for consider a user as useful. 
+ 
+ \item   min\_date\_activity\_user = 1/6/2019. The last activity of the user should be after the 1st of June.
+\end{itemize}
+
+
+%We check:
+%\begin{itemize}
+% \item   $locationname = Italy $ 
+% \item   $tweets_seed = 10 $
+% \item   $n_users = 15$
+ 
+% \item   $sample_size = 5$ Number of users that we selected randomly  the list of users
+ 
+% \item   $friends_sample_size = 5$ Number of users that we selected randomly from the list of friends for the selected users
+ 
+% \item   $n_tweets_per_user = 15$ Number of tweets to obtain per user selected for the analysis
+ 
+% \item   $last_tweets_date = 2019-10-20$ 
+ 
+% \item   $min_date_last_activity_user = datetime(2019, 10, 10, 0, 0)$
+%\end{itemize}
+
+
+\subsection{Strategy to detect the party of the users collected}
+
+First of all, we considered a temporal window between June-September to analyse the tweets of every users collected with the script mentioned in the previous section.
+
+\bibliography{references}
+\bibliographystyle{plain}
+
+\end{document}
