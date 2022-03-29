@@ -2,7 +2,11 @@
 
 Project for the Cognitive, Behavioral and Social Data @ Unipd, made by Natascia Caria, Marìa Emilia Charnelli, Francesco Ferretto, Matteo Lavina and Andrea Sinigaglia
 
-The aim of this project was, after a preliminary phase of data collection and labeling, in finding topics by analyzing the cluster of topics among different political parties and see their evolution through time. 
+The aim of this project is, after a preliminary phase of manual data collection and labeling, in finding topics by analysing the cluster of tweets' words from people having different political parties. Two approaches where adopted for topic recognition:
+- a syntactic approach (TF-IDF index) and
+- a semantic one (with Doc2Vec).
+To detect clusters of words (topics) the k-means algorithm was used (under the assumption of non-overlapping clusters of words) and applied w.r.t. time in order to analyse the progress. 
+
 For an in-depth description of the project with its results, look at "CBSD_project.pdf" file.
 
 
